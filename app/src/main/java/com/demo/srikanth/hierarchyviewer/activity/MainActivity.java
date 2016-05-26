@@ -2,22 +2,32 @@ package com.demo.srikanth.hierarchyviewer.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
 import com.demo.srikanth.hierarchyviewer.R;
+import com.demo.srikanth.hierarchyviewer.adapter.TopLevelAdapter;
 import com.demo.srikanth.hierarchyviewer.data.Injector;
 import com.demo.srikanth.hierarchyviewer.model.TopLevelCategories;
 
 public class MainActivity extends AppCompatActivity implements TopLevelCategoriesContract {
 
+    private RecyclerView topLevelRecycler;
+    private TopLevelAdapter topLevelAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        topLevelRecycler = (RecyclerView) findViewById(R.id.top_level_recycler);
+        topLevelRecycler.setLayoutManager(new LinearLayoutManager(this));
+
+        topLevelAdapter = new TopLevelAdapter(null);
+        topLevelRecycler.setAdapter(topLevelAdapter);
 
         TopLevelPresenter booksPresenter = new TopLevelPresenter(this, Injector.provideTuneInService());
-
         booksPresenter.initDataSet();
     }
 
@@ -29,5 +39,6 @@ public class MainActivity extends AppCompatActivity implements TopLevelCategorie
     @Override
     public void showTopLevelCategories(TopLevelCategories categories) {
         Log.v("Testing", categories.toString());
+        topLevelAdapter.setData(categories);
     }
 }

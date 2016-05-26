@@ -21,12 +21,14 @@ android {
 
 ext {
     retrofitVersion = '2.0.2'
+    supportLibraryVersion = '23.4.0'
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile "com.android.support:appcompat-v7:$supportLibraryVersion"
+    compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
 
     // REST
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
