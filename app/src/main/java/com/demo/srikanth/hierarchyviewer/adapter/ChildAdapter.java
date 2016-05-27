@@ -1,7 +1,6 @@
 package com.demo.srikanth.hierarchyviewer.adapter;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +9,13 @@ import android.widget.Toast;
 
 import com.demo.srikanth.hierarchyviewer.R;
 import com.demo.srikanth.hierarchyviewer.model.Body;
+import com.demo.srikanth.hierarchyviewer.model.Child;
 import com.demo.srikanth.hierarchyviewer.model.ChildCategory;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Created by shrek on 5/26/16.
@@ -20,26 +23,44 @@ import java.util.List;
 public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildCategoryViewHolder> {
 
     ChildCategory category;
+    List<Data> data = new ArrayList<>();
+
+    public ChildAdapter(ChildCategory childCategory) {
+        setData(childCategory);
+    }
 
     @Override
     public ChildCategoryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.top_level_layout, null);
+        View view = null;
+
+        if (viewType == 1) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.child_level_header_layout, null);
+        } else if (viewType == 2) {
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.child_level_layout, null);
+        }
+
         return new ChildCategoryViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ChildCategoryViewHolder holder, int position) {
-        holder.titleView.setText(category.getBody().get(position).getText());
+        holder.titleView.setText(data.get(position).text);
     }
 
     @Override
     public int getItemCount() {
-        if (category == null) {
+        if (data == null) {
             return 0;
         } else {
-            return category.getBody().size();
+            return data.size();
         }
     }
+
+    @Override
+    public int getItemViewType(int position) {
+        return data.get(position).viewType;
+    }
+
 
     class ChildCategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -62,10 +83,25 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildCategor
 
         List<Body> bodyArrayList = _childCategory.getBody();
 
-        for (Body body : bodyArrayList ){
-            Log.v("Testing",body.getText());
-        }
+        for (Body body : bodyArrayList) {
+            data.add(new Data(body.getText(), 1));
 
+            List<Child> children = body.getChildren();
+
+            for (Child child : children) {
+                data.add(new Data(child.getText(), 2));
+            }
+        }
+        notifyDataSetChanged();
     }
 
+    private class Data {
+        private String text;
+        private int viewType;
+
+        public Data(String _text, int i) {
+            text = _text;
+            viewType = i;
+        }
+    }
 }

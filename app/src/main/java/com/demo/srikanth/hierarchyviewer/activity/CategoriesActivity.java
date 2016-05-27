@@ -60,7 +60,8 @@ public class CategoriesActivity extends AppCompatActivity implements CategoryCon
 
     @Override
     public void showChildCategories(ChildCategory childCategory) {
-
+        ChildAdapter adapter = new ChildAdapter(childCategory);
+        childRecycler.setAdapter(adapter);
     }
 
     @Override
