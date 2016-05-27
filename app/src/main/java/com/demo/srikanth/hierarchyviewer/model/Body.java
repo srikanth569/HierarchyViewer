@@ -5,7 +5,7 @@ public class Body {
     private String element;
     private String type;
     private String text;
-    private String uRL;
+    private String URL;
     private String key;
 
     /**
@@ -51,17 +51,17 @@ public class Body {
     }
 
     /**
-     * @return The uRL
+     * @return The URL
      */
     public String getURL() {
-        return uRL;
+        return URL;
     }
 
     /**
      * @param uRL The URL
      */
     public void setURL(String uRL) {
-        this.uRL = uRL;
+        this.URL = uRL;
     }
 
     /**
@@ -84,7 +84,7 @@ public class Body {
                 "element='" + element + '\'' +
                 ", type='" + type + '\'' +
                 ", text='" + text + '\'' +
-                ", uRL='" + uRL + '\'' +
+                ", URL='" + URL + '\'' +
                 ", key='" + key + '\'' +
                 '}';
     }

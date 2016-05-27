@@ -5,5 +5,4 @@ package com.demo.srikanth.hierarchyviewer;
  */
 public class Constants {
     public static final String BASE_URL = "http://opml.radiotime.com/";
-    public static final String BASE_BROWSE_URL = "http://opml.radiotime.com/Browse.ashx";
 }
