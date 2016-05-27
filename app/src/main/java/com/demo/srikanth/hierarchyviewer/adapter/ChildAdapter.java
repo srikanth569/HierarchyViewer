@@ -20,8 +20,10 @@ import java.util.List;
  */
 public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildCategoryViewHolder> {
 
-    ChildCategory category;
-    List<Data> data = new ArrayList<>();
+    private final int HEADER_ELEMENT = 1;
+    private final int CHILD_ELEMENT = 2;
+    private final List<Data> data = new ArrayList<>();
+
 
     public ChildAdapter(ChildCategory childCategory) {
         setData(childCategory);
@@ -31,9 +33,9 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildCategor
     public ChildCategoryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = null;
 
-        if (viewType == 1) {
+        if (viewType == HEADER_ELEMENT) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.child_level_header_layout, null);
-        } else if (viewType == 2) {
+        } else if (viewType == CHILD_ELEMENT) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.child_level_layout, null);
         }
 
@@ -74,7 +76,7 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildCategor
         public void onClick(View v) {
             int position = getAdapterPosition();
             if (data.get(position).viewType == 2) {
-                Toast.makeText(v.getContext(), "logic to play audio goes here ", Toast.LENGTH_LONG).show();
+                Toast.makeText(v.getContext(), R.string.logic_to_play_audio, Toast.LENGTH_LONG).show();
             }
         }
 
@@ -85,12 +87,12 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildCategor
         List<Body> bodyArrayList = _childCategory.getBody();
 
         for (Body body : bodyArrayList) {
-            data.add(new Data(body.getText(), 1));
+            data.add(new Data(body.getText(), HEADER_ELEMENT));
 
             List<Child> children = body.getChildren();
 
             for (Child child : children) {
-                data.add(new Data(child.getText(), 2));
+                data.add(new Data(child.getText(), CHILD_ELEMENT));
             }
         }
         notifyDataSetChanged();

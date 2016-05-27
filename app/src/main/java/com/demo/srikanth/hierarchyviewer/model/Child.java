@@ -6,11 +6,11 @@ package com.demo.srikanth.hierarchyviewer.model;
 
 public class Child {
 
-    public String element;
-    public String type;
-    public String text;
-    public String URL;
-    public String key;
+    private String element;
+    private String type;
+    private String text;
+    private String URL;
+    private String key;
 
     public String getElement() {
         return element;

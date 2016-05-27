@@ -5,4 +5,8 @@ package com.demo.srikanth.hierarchyviewer;
  */
 public class Constants {
     public static final String BASE_URL = "http://opml.radiotime.com/";
+    public static final String RENDER = "render";
+    public static final String JSON = "json";
+    public static final String BODY = "body";
+    public static final String CHILDREN = "children";
 }

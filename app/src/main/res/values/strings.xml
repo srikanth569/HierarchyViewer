@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">HierarchyViewer</string>
     <string name="unable_to_load_data">Unable to load data</string>
+    <string name="logic_to_play_audio">logic to play audio goes here</string>
 </resources>

@@ -8,8 +8,8 @@ import java.util.List;
  */
 public class ChildCategory {
 
-    public Head head;
-    public List<Body> body = new ArrayList<Body>();
+    private Head head;
+    private List<Body> body = new ArrayList<>();
 
     public Head getHead() {
         return head;

@@ -2,6 +2,7 @@ package com.demo.srikanth.hierarchyviewer.activity;
 
 import android.util.Log;
 
+import com.demo.srikanth.hierarchyviewer.Constants;
 import com.demo.srikanth.hierarchyviewer.data.TuneInService;
 import com.demo.srikanth.hierarchyviewer.model.ChildCategory;
 import com.demo.srikanth.hierarchyviewer.model.toplevel.TopLevelCategories;
@@ -37,7 +38,7 @@ public class CategoryPresenter {
 
     public void initData(String id) {
         HashMap<String, String> queryMap = new HashMap<>();
-        queryMap.put("render", "json");
+        queryMap.put(Constants.RENDER, Constants.JSON);
 
         tuneInService.getDynamicCategories(id, queryMap).enqueue(new Callback<ResponseBody>() {
             @Override
@@ -49,16 +50,16 @@ public class CategoryPresenter {
                     try {
                         String responseString = response.body().string();
                         JSONObject json = new JSONObject(responseString);
-                        JSONArray jsonArray = json.getJSONArray("body");
+                        JSONArray jsonArray = json.getJSONArray(Constants.BODY);
 
                         JSONObject jsonobject = jsonArray.getJSONObject(0);
                         Iterator<String> iterator = jsonobject.keys();
-                        boolean foundChilrenKey = false;
+                        boolean foundChildrenKey = false;
                         while (iterator.hasNext()) {
                             String key = iterator.next();
-                            foundChilrenKey = key.equals("children");
+                            foundChildrenKey = key.equals(Constants.CHILDREN);
                         }
-                        if (foundChilrenKey) {
+                        if (foundChildrenKey) {
                             ChildCategory childCategory = gson.fromJson(responseString, ChildCategory.class);
                             categoryView.showChildCategories(childCategory);
                         } else {
@@ -73,27 +74,8 @@ public class CategoryPresenter {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                Log.v("Testing", "Failure");
+                categoryView.showErrorMessage();
             }
         });
-    }
-
-    public static Map<String, String> parse(JSONObject json, Map<String, String> out) throws JSONException {
-        Iterator<String> keys = json.keys();
-        while (keys.hasNext()) {
-            String key = keys.next();
-            String val = null;
-            try {
-                JSONObject value = json.getJSONObject(key);
-                parse(value, out);
-            } catch (Exception e) {
-                val = json.getString(key);
-            }
-
-            if (val != null) {
-                out.put(key, val);
-            }
-        }
-        return out;
     }
 }

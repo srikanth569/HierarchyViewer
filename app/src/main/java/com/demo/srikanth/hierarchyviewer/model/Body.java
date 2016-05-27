@@ -10,11 +10,11 @@ import java.util.List;
 
 public class Body {
 
-    public String element;
-    public String text;
-    public String key;
+    private String element;
+    private String text;
+    private String key;
 
-    public List<Child> children = new ArrayList<Child>();
+    private List<Child> children = new ArrayList<>();
 
     public List<Child> getChildren() {
         return children;

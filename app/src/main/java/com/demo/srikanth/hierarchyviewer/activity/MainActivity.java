@@ -42,13 +42,11 @@ public class MainActivity extends AppCompatActivity implements TopLevelCategorie
 
     @Override
     public void showTopLevelCategories(TopLevelCategories categories) {
-        Log.v("Testing", categories.toString());
         topLevelAdapter.setData(categories);
     }
 
     @Override
     public void OnClick(Body body) {
-        Toast.makeText(this, "The id is " + body.getKey(), Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, CategoriesActivity.class);
         intent.putExtra(CategoriesActivity.EXTRA_ID, body.getKey());
         intent.putExtra(CategoriesActivity.EXTRA_URL, body.getURL());

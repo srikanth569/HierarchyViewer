@@ -7,8 +7,8 @@ package com.demo.srikanth.hierarchyviewer.model;
 
 public class Head {
 
-    public String title;
-    public String status;
+    private String title;
+    private String status;
 
     public String getTitle() {
         return title;

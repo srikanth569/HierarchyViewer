@@ -21,8 +21,8 @@ import com.demo.srikanth.hierarchyviewer.model.toplevel.TopLevelCategories;
  */
 public class CategoriesActivity extends AppCompatActivity implements CategoryContract, TopLevelAdapter.OnClickListener {
 
-    public static String EXTRA_ID = "id";
-    public static String EXTRA_URL = "url";
+    public static final String EXTRA_ID = "id";
+    public static final String EXTRA_URL = "url";
 
     private String id;
     private String url;
@@ -47,7 +47,7 @@ public class CategoriesActivity extends AppCompatActivity implements CategoryCon
 
     @Override
     public void showErrorMessage() {
-
+        Toast.makeText(this, getString(R.string.unable_to_load_data), Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -60,13 +60,12 @@ public class CategoriesActivity extends AppCompatActivity implements CategoryCon
 
     @Override
     public void showChildCategories(ChildCategory childCategory) {
-        ChildAdapter adapter = new ChildAdapter(childCategory);
-        childRecycler.setAdapter(adapter);
+         childAdapter = new ChildAdapter(childCategory);
+        childRecycler.setAdapter(childAdapter);
     }
 
     @Override
     public void OnClick(Body body) {
-        Toast.makeText(this, "The id is " + body.getKey(), Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, CategoriesActivity.class);
         intent.putExtra(CategoriesActivity.EXTRA_ID, body.getKey());
         intent.putExtra(CategoriesActivity.EXTRA_URL, body.getURL());
