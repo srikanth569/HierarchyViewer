@@ -3,6 +3,7 @@ package com.demo.srikanth.hierarchyviewer.activity;
 import android.util.Log;
 
 import com.demo.srikanth.hierarchyviewer.data.TuneInService;
+import com.demo.srikanth.hierarchyviewer.model.ChildCategory;
 import com.demo.srikanth.hierarchyviewer.model.toplevel.TopLevelCategories;
 import com.google.gson.Gson;
 
@@ -57,6 +58,8 @@ public class CategoryPresenter {
                             foundChilrenKey = key.equals("children");
                         }
                         if (foundChilrenKey) {
+                            ChildCategory childCategory = gson.fromJson(response.body().charStream(), ChildCategory.class);
+                            Log.v("Testing", childCategory.getHead().getTitle());
                         } else {
                             TopLevelCategories categories = gson.fromJson(response.body().charStream(), TopLevelCategories.class);
                             categoryView.showTopLevelCategories(categories);
