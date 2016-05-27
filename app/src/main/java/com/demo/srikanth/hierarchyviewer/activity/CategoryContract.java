@@ -1,5 +1,6 @@
 package com.demo.srikanth.hierarchyviewer.activity;
 
+import com.demo.srikanth.hierarchyviewer.model.ChildCategory;
 import com.demo.srikanth.hierarchyviewer.model.toplevel.TopLevelCategories;
 
 /**
@@ -9,4 +10,6 @@ public interface CategoryContract {
     void showErrorMessage();
 
     void showTopLevelCategories(TopLevelCategories categories);
+
+    void showChildCategories(ChildCategory childCategory);
 }

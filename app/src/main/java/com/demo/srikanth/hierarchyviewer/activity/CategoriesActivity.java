@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.demo.srikanth.hierarchyviewer.Constants;
 import com.demo.srikanth.hierarchyviewer.R;
 import com.demo.srikanth.hierarchyviewer.data.Injector;
+import com.demo.srikanth.hierarchyviewer.model.ChildCategory;
 import com.demo.srikanth.hierarchyviewer.model.toplevel.TopLevelCategories;
 
 /**
@@ -36,6 +37,11 @@ public class CategoriesActivity extends AppCompatActivity implements CategoryCon
 
     @Override
     public void showTopLevelCategories(TopLevelCategories categories) {
+
+    }
+
+    @Override
+    public void showChildCategories(ChildCategory childCategory) {
 
     }
 }

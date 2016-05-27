@@ -60,7 +60,7 @@ public class CategoryPresenter {
                         }
                         if (foundChilrenKey) {
                             ChildCategory childCategory = gson.fromJson(responseString, ChildCategory.class);
-                            Log.v("Testing", childCategory.getHead().getTitle());
+                            categoryView.showChildCategories(childCategory);
                         } else {
                             TopLevelCategories categories = gson.fromJson(responseString, TopLevelCategories.class);
                             categoryView.showTopLevelCategories(categories);
