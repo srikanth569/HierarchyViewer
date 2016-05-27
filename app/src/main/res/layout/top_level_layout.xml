@@ -6,6 +6,9 @@
 
     <TextView
         android:id="@+id/top_level_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/default_touchable_height"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:gravity="center|start"
+        android:text="@string/app_name" />
 </LinearLayout>

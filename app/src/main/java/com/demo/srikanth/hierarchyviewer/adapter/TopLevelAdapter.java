@@ -1,6 +1,7 @@
 package com.demo.srikanth.hierarchyviewer.adapter;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,11 @@ public class TopLevelAdapter extends RecyclerView.Adapter<TopLevelAdapter.TopLev
     }
 
     @Override
+    public void onBindViewHolder(TopLevelViewHolder holder, int position) {
+        holder.titleView.setText(categories.getBody().get(position).getText());
+    }
+
+    @Override
     public int getItemCount() {
         if (categories == null) {
             return 0;
@@ -34,23 +40,26 @@ public class TopLevelAdapter extends RecyclerView.Adapter<TopLevelAdapter.TopLev
         return categories.getBody().size();
     }
 
-    @Override
-    public void onBindViewHolder(TopLevelViewHolder holder, int position) {
-        holder.titleView.setText(categories.getBody().get(position).getText());
-    }
-
     public void setData(TopLevelCategories _categories) {
         categories = _categories;
         notifyDataSetChanged();
     }
 
-    class TopLevelViewHolder extends RecyclerView.ViewHolder {
+
+    class TopLevelViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView titleView;
 
         public TopLevelViewHolder(View itemView) {
             super(itemView);
             titleView = (TextView) itemView.findViewById(R.id.top_level_title);
+            itemView.setOnClickListener(this);
+
+        }
+
+        @Override
+        public void onClick(View v) {
+            Log.v("Testing", "Clicked on " + getAdapterPosition());
         }
     }
 
