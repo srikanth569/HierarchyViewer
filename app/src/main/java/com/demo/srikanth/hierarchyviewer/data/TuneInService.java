@@ -4,6 +4,7 @@ import com.demo.srikanth.hierarchyviewer.model.TopLevelCategories;
 
 import java.util.Map;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
@@ -23,6 +24,7 @@ public interface TuneInService {
     @GET
     Call<TopLevelCategories> getCategories(@Url String url, @QueryMap Map<String, String> queryMap);
 
-
+    @GET
+    Call<ResponseBody> getDynamicCategories(@Url String url, @QueryMap Map<String, String> queryMap);
 
 }
