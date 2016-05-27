@@ -7,12 +7,14 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.demo.srikanth.hierarchyviewer.Constants;
 import com.demo.srikanth.hierarchyviewer.R;
 import com.demo.srikanth.hierarchyviewer.adapter.TopLevelAdapter;
 import com.demo.srikanth.hierarchyviewer.data.Injector;
+import com.demo.srikanth.hierarchyviewer.model.TopLevelBody;
 import com.demo.srikanth.hierarchyviewer.model.TopLevelCategories;
 
-public class MainActivity extends AppCompatActivity implements TopLevelCategoriesContract {
+public class MainActivity extends AppCompatActivity implements TopLevelCategoriesContract, TopLevelAdapter.OnClickListener {
 
     private RecyclerView topLevelRecycler;
     private TopLevelAdapter topLevelAdapter;
@@ -40,5 +42,10 @@ public class MainActivity extends AppCompatActivity implements TopLevelCategorie
     public void showTopLevelCategories(TopLevelCategories categories) {
         Log.v("Testing", categories.toString());
         topLevelAdapter.setData(categories);
+    }
+
+    @Override
+    public void OnClick(TopLevelBody topLevelBody) {
+        Toast.makeText(this,"The id is "+ topLevelBody.getKey(),Toast.LENGTH_LONG).show();
     }
 }

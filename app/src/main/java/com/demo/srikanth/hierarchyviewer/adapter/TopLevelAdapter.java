@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.demo.srikanth.hierarchyviewer.R;
+import com.demo.srikanth.hierarchyviewer.model.TopLevelBody;
 import com.demo.srikanth.hierarchyviewer.model.TopLevelCategories;
 
 /**
@@ -16,6 +17,7 @@ import com.demo.srikanth.hierarchyviewer.model.TopLevelCategories;
 public class TopLevelAdapter extends RecyclerView.Adapter<TopLevelAdapter.TopLevelViewHolder> {
 
     private TopLevelCategories categories;
+    private OnClickListener onClickListener;
 
     public TopLevelAdapter(TopLevelCategories _categories) {
         categories = _categories;
@@ -29,7 +31,7 @@ public class TopLevelAdapter extends RecyclerView.Adapter<TopLevelAdapter.TopLev
 
     @Override
     public void onBindViewHolder(TopLevelViewHolder holder, int position) {
-        holder.titleView.setText(categories.getBody().get(position).getText());
+        holder.titleView.setText(categories.getTopLevelBody().get(position).getText());
     }
 
     @Override
@@ -37,7 +39,7 @@ public class TopLevelAdapter extends RecyclerView.Adapter<TopLevelAdapter.TopLev
         if (categories == null) {
             return 0;
         }
-        return categories.getBody().size();
+        return categories.getTopLevelBody().size();
     }
 
     public void setData(TopLevelCategories _categories) {
@@ -45,6 +47,9 @@ public class TopLevelAdapter extends RecyclerView.Adapter<TopLevelAdapter.TopLev
         notifyDataSetChanged();
     }
 
+    public void setOnClickListener(OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
+    }
 
     class TopLevelViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
@@ -54,13 +59,20 @@ public class TopLevelAdapter extends RecyclerView.Adapter<TopLevelAdapter.TopLev
             super(itemView);
             titleView = (TextView) itemView.findViewById(R.id.top_level_title);
             itemView.setOnClickListener(this);
-
         }
 
         @Override
         public void onClick(View v) {
             Log.v("Testing", "Clicked on " + getAdapterPosition());
+            if (onClickListener != null) {
+                onClickListener.OnClick(categories.getTopLevelBody().get(getAdapterPosition()));
+            }
         }
+
+    }
+
+    public interface OnClickListener {
+        void OnClick(TopLevelBody topLevelBody);
     }
 
 }
