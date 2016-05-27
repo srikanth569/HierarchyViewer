@@ -1,10 +1,13 @@
 package com.demo.srikanth.hierarchyviewer.model;
 
+
 /**
  * Created by shrek on 5/26/16.
  */
 
-public class TopLevelHead {
+
+public class Head {
+
 
     private String title;
     private String status;
@@ -39,7 +42,7 @@ public class TopLevelHead {
 
     @Override
     public String toString() {
-        return "TopLevelHead{" +
+        return "Head{" +
                 "title='" + title + '\'' +
                 ", status='" + status + '\'' +
                 '}';

@@ -10,42 +10,42 @@ import java.util.List;
 
 public class TopLevelCategories {
 
-    private TopLevelHead topLevelHead;
-    private List<TopLevelBody> topLevelBody = new ArrayList<>();
+    private Head head;
+    private List<Body> body = new ArrayList<>();
 
     /**
-     * @return The topLevelHead
+     * @return The head
      */
-    public TopLevelHead getTopLevelHead() {
-        return topLevelHead;
+    public Head getHead() {
+        return head;
     }
 
     /**
-     * @param topLevelHead The topLevelHead
+     * @param head The head
      */
-    public void setTopLevelHead(TopLevelHead topLevelHead) {
-        this.topLevelHead = topLevelHead;
+    public void setHead(Head head) {
+        this.head = head;
     }
 
     /**
-     * @return The topLevelBody
+     * @return The body
      */
-    public List<TopLevelBody> getTopLevelBody() {
-        return topLevelBody;
+    public List<Body> getBody() {
+        return body;
     }
 
     /**
-     * @param topLevelBody The topLevelBody
+     * @param body The body
      */
-    public void setTopLevelBody(List<TopLevelBody> topLevelBody) {
-        this.topLevelBody = topLevelBody;
+    public void setBody(List<Body> body) {
+        this.body = body;
     }
 
     @Override
     public String toString() {
         return "TopLevelCategories{" +
-                "topLevelHead=" + topLevelHead +
-                ", topLevelBody=" + topLevelBody +
+                "head=" + head +
+                ", body=" + body +
                 '}';
     }
 }

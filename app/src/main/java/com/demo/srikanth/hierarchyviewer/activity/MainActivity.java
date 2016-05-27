@@ -11,7 +11,7 @@ import com.demo.srikanth.hierarchyviewer.Constants;
 import com.demo.srikanth.hierarchyviewer.R;
 import com.demo.srikanth.hierarchyviewer.adapter.TopLevelAdapter;
 import com.demo.srikanth.hierarchyviewer.data.Injector;
-import com.demo.srikanth.hierarchyviewer.model.TopLevelBody;
+import com.demo.srikanth.hierarchyviewer.model.Body;
 import com.demo.srikanth.hierarchyviewer.model.TopLevelCategories;
 
 public class MainActivity extends AppCompatActivity implements TopLevelCategoriesContract, TopLevelAdapter.OnClickListener {
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements TopLevelCategorie
     }
 
     @Override
-    public void OnClick(TopLevelBody topLevelBody) {
-        Toast.makeText(this,"The id is "+ topLevelBody.getKey(),Toast.LENGTH_LONG).show();
+    public void OnClick(Body body) {
+        Toast.makeText(this,"The id is "+ body.getKey(),Toast.LENGTH_LONG).show();
     }
 }

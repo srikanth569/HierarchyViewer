@@ -1,6 +1,6 @@
 package com.demo.srikanth.hierarchyviewer.model;
 
-public class TopLevelBody {
+public class Body {
 
     private String element;
     private String type;
@@ -80,7 +80,7 @@ public class TopLevelBody {
 
     @Override
     public String toString() {
-        return "TopLevelBody{" +
+        return "Body{" +
                 "element='" + element + '\'' +
                 ", type='" + type + '\'' +
                 ", text='" + text + '\'' +

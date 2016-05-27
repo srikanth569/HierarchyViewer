@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.demo.srikanth.hierarchyviewer.R;
-import com.demo.srikanth.hierarchyviewer.model.TopLevelBody;
+import com.demo.srikanth.hierarchyviewer.model.Body;
 import com.demo.srikanth.hierarchyviewer.model.TopLevelCategories;
 
 /**
@@ -31,7 +31,7 @@ public class TopLevelAdapter extends RecyclerView.Adapter<TopLevelAdapter.TopLev
 
     @Override
     public void onBindViewHolder(TopLevelViewHolder holder, int position) {
-        holder.titleView.setText(categories.getTopLevelBody().get(position).getText());
+        holder.titleView.setText(categories.getBody().get(position).getText());
     }
 
     @Override
@@ -39,7 +39,7 @@ public class TopLevelAdapter extends RecyclerView.Adapter<TopLevelAdapter.TopLev
         if (categories == null) {
             return 0;
         }
-        return categories.getTopLevelBody().size();
+        return categories.getBody().size();
     }
 
     public void setData(TopLevelCategories _categories) {
@@ -65,14 +65,14 @@ public class TopLevelAdapter extends RecyclerView.Adapter<TopLevelAdapter.TopLev
         public void onClick(View v) {
             Log.v("Testing", "Clicked on " + getAdapterPosition());
             if (onClickListener != null) {
-                onClickListener.OnClick(categories.getTopLevelBody().get(getAdapterPosition()));
+                onClickListener.OnClick(categories.getBody().get(getAdapterPosition()));
             }
         }
 
     }
 
     public interface OnClickListener {
-        void OnClick(TopLevelBody topLevelBody);
+        void OnClick(Body body);
     }
 
 }
