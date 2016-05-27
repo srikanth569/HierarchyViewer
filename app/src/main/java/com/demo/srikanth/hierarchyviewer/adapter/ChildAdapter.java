@@ -45,6 +45,9 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildCategor
     @Override
     public void onBindViewHolder(ChildCategoryViewHolder holder, int position) {
         holder.titleView.setText(data.get(position).text);
+        if (data.get(position).viewType == CHILD_ELEMENT) {
+            holder.subText.setText(data.get(position).subText);
+        }
     }
 
     @Override
@@ -65,9 +68,11 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildCategor
     class ChildCategoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView titleView;
+        private TextView subText;
 
         public ChildCategoryViewHolder(View itemView) {
             super(itemView);
+            subText = (TextView) itemView.findViewById(R.id.child_level_sub_text);
             titleView = (TextView) itemView.findViewById(R.id.child_level_title);
             itemView.setOnClickListener(this);
         }
@@ -92,7 +97,7 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildCategor
             List<Child> children = body.getChildren();
 
             for (Child child : children) {
-                data.add(new Data(child.getText(), CHILD_ELEMENT));
+                data.add(new Data(child.getText(), child.getSubtext(), CHILD_ELEMENT));
             }
         }
         notifyDataSetChanged();
@@ -100,11 +105,19 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildCategor
 
     private class Data {
         private String text;
+        private String subText;
         private int viewType;
 
-        public Data(String _text, int i) {
+        public Data(String _text, String _subText, int _viewType) {
             text = _text;
-            viewType = i;
+            subText = _subText;
+            viewType = _viewType;
+        }
+
+        public Data(String _text, int _viewType) {
+            text = _text;
+            viewType = _viewType;
+            subText = null;
         }
     }
 }

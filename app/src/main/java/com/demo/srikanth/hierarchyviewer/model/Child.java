@@ -11,6 +11,7 @@ public class Child {
     private String text;
     private String URL;
     private String key;
+    private String subtext;
 
     public String getElement() {
         return element;
@@ -61,5 +62,13 @@ public class Child {
                 ", URL='" + URL + '\'' +
                 ", key='" + key + '\'' +
                 '}';
+    }
+
+    public String getSubtext() {
+        return subtext;
+    }
+
+    public void setSubtext(String subtext) {
+        this.subtext = subtext;
     }
 }
