@@ -14,8 +14,6 @@ import com.demo.srikanth.hierarchyviewer.model.ChildCategory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * Created by shrek on 5/26/16.
@@ -74,7 +72,10 @@ public class ChildAdapter extends RecyclerView.Adapter<ChildAdapter.ChildCategor
 
         @Override
         public void onClick(View v) {
-            Toast.makeText(v.getContext(), "Play the video here", Toast.LENGTH_LONG).show();
+            int position = getAdapterPosition();
+            if (data.get(position).viewType == 2) {
+                Toast.makeText(v.getContext(), "logic to play audio goes here ", Toast.LENGTH_LONG).show();
+            }
         }
 
     }
