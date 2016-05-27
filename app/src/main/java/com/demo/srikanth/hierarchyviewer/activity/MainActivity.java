@@ -1,5 +1,6 @@
 package com.demo.srikanth.hierarchyviewer.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -48,5 +49,8 @@ public class MainActivity extends AppCompatActivity implements TopLevelCategorie
     @Override
     public void OnClick(Body body) {
         Toast.makeText(this,"The id is "+ body.getKey(),Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(this, CategoriesActivity.class);
+        intent.putExtra(CategoriesActivity.EXTRA_ID, body.getKey());
+        startActivity(intent);
     }
 }
