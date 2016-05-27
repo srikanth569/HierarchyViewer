@@ -32,6 +32,7 @@ public class TopLevelAdapter extends RecyclerView.Adapter<TopLevelAdapter.TopLev
     @Override
     public void onBindViewHolder(TopLevelViewHolder holder, int position) {
         holder.titleView.setText(categories.getBody().get(position).getText());
+        Log.v("Testing", "Title is " + categories.getBody().get(position).getText());
     }
 
     @Override

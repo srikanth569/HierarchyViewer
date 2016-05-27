@@ -12,6 +12,8 @@ public class Body {
 
     public String element;
     public String text;
+    public String key;
+
     public List<Child> children = new ArrayList<Child>();
 
     public List<Child> getChildren() {
@@ -20,6 +22,14 @@ public class Body {
 
     public void setChildren(List<Child> children) {
         this.children = children;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
     }
 
     public String getText() {
@@ -43,6 +53,7 @@ public class Body {
         return "Body{" +
                 "element='" + element + '\'' +
                 ", text='" + text + '\'' +
+                ", key='" + key + '\'' +
                 ", children=" + children +
                 '}';
     }
