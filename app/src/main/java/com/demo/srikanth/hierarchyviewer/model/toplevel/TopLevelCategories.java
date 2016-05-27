@@ -1,8 +1,11 @@
-package com.demo.srikanth.hierarchyviewer.model;
+package com.demo.srikanth.hierarchyviewer.model.toplevel;
 
 /**
  * Created by shrek on 5/26/16.
  */
+
+import com.demo.srikanth.hierarchyviewer.model.toplevel.Body;
+import com.demo.srikanth.hierarchyviewer.model.toplevel.Head;
 
 import java.util.ArrayList;
 import java.util.List;

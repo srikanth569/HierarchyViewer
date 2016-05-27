@@ -1,14 +1,10 @@
 package com.demo.srikanth.hierarchyviewer.activity;
 
 import android.util.Log;
-import android.widget.Toast;
 
 import com.demo.srikanth.hierarchyviewer.data.TuneInService;
-import com.demo.srikanth.hierarchyviewer.model.TopLevelCategories;
+import com.demo.srikanth.hierarchyviewer.model.toplevel.TopLevelCategories;
 import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-import com.google.gson.reflect.TypeToken;
 
 
 import org.json.JSONArray;
@@ -16,7 +12,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;

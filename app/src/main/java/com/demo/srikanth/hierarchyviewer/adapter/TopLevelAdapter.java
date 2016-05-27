@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.demo.srikanth.hierarchyviewer.R;
-import com.demo.srikanth.hierarchyviewer.model.Body;
-import com.demo.srikanth.hierarchyviewer.model.TopLevelCategories;
+import com.demo.srikanth.hierarchyviewer.model.toplevel.Body;
+import com.demo.srikanth.hierarchyviewer.model.toplevel.TopLevelCategories;
 
 /**
  * Created by shrek on 5/26/16.

@@ -3,15 +3,13 @@ package com.demo.srikanth.hierarchyviewer.activity;
 import android.util.Log;
 
 import com.demo.srikanth.hierarchyviewer.data.TuneInService;
-import com.demo.srikanth.hierarchyviewer.model.TopLevelCategories;
+import com.demo.srikanth.hierarchyviewer.model.toplevel.TopLevelCategories;
 
 import java.util.HashMap;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.QueryMap;
 
 /**
  * Created by shrek on 5/26/16.

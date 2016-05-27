@@ -1,6 +1,6 @@
 package com.demo.srikanth.hierarchyviewer.data;
 
-import com.demo.srikanth.hierarchyviewer.model.TopLevelCategories;
+import com.demo.srikanth.hierarchyviewer.model.toplevel.TopLevelCategories;
 
 import java.util.Map;
 

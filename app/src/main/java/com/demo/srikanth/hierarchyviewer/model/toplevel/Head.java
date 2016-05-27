@@ -1,4 +1,4 @@
-package com.demo.srikanth.hierarchyviewer.model;
+package com.demo.srikanth.hierarchyviewer.model.toplevel;
 
 
 /**

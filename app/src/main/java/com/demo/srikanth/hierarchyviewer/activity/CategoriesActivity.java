@@ -1,15 +1,12 @@
 package com.demo.srikanth.hierarchyviewer.activity;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Toast;
 
 import com.demo.srikanth.hierarchyviewer.Constants;
 import com.demo.srikanth.hierarchyviewer.R;
 import com.demo.srikanth.hierarchyviewer.data.Injector;
-import com.demo.srikanth.hierarchyviewer.model.TopLevelCategories;
+import com.demo.srikanth.hierarchyviewer.model.toplevel.TopLevelCategories;
 
 /**
  * Created by shrek on 5/26/16.

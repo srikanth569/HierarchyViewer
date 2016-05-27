@@ -12,8 +12,8 @@ import com.demo.srikanth.hierarchyviewer.Constants;
 import com.demo.srikanth.hierarchyviewer.R;
 import com.demo.srikanth.hierarchyviewer.adapter.TopLevelAdapter;
 import com.demo.srikanth.hierarchyviewer.data.Injector;
-import com.demo.srikanth.hierarchyviewer.model.Body;
-import com.demo.srikanth.hierarchyviewer.model.TopLevelCategories;
+import com.demo.srikanth.hierarchyviewer.model.toplevel.Body;
+import com.demo.srikanth.hierarchyviewer.model.toplevel.TopLevelCategories;
 
 public class MainActivity extends AppCompatActivity implements TopLevelCategoriesContract, TopLevelAdapter.OnClickListener {
 
