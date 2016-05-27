@@ -37,6 +37,7 @@ public class CategoriesActivity extends AppCompatActivity implements CategoryCon
         setContentView(R.layout.categories_layout);
         childRecycler = (RecyclerView) findViewById(R.id.child_level_recycler);
         childRecycler.setLayoutManager(new LinearLayoutManager(this));
+        childRecycler.addItemDecoration(new SimpleDividerItemDecoration(this));
         topLevelAdapter = new TopLevelAdapter(null);
         childRecycler.setAdapter(topLevelAdapter);
         id = getIntent().getStringExtra(EXTRA_ID);
@@ -60,7 +61,7 @@ public class CategoriesActivity extends AppCompatActivity implements CategoryCon
 
     @Override
     public void showChildCategories(ChildCategory childCategory) {
-         childAdapter = new ChildAdapter(childCategory);
+        childAdapter = new ChildAdapter(childCategory);
         childRecycler.setAdapter(childAdapter);
     }
 

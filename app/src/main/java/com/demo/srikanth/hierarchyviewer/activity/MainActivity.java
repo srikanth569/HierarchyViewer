@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements TopLevelCategorie
         setContentView(R.layout.activity_main);
         topLevelRecycler = (RecyclerView) findViewById(R.id.top_level_recycler);
         topLevelRecycler.setLayoutManager(new LinearLayoutManager(this));
-
+        topLevelRecycler.addItemDecoration(new SimpleDividerItemDecoration(this));
         topLevelAdapter = new TopLevelAdapter(null);
         topLevelRecycler.setAdapter(topLevelAdapter);
         topLevelAdapter.setOnClickListener(this);

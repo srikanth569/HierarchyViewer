@@ -11,5 +11,6 @@
         android:background="@color/gray"
         android:gravity="center|start"
         android:lines="1"
+        android:padding="@dimen/activity_horizontal_margin"
         android:text="@string/app_name" />
 </RelativeLayout>
