@@ -1,7 +1,5 @@
 package com.demo.srikanth.hierarchyviewer.data;
 
-import com.demo.srikanth.hierarchyviewer.Constants;
-
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -18,8 +16,8 @@ public class Injector {
                 .build();
     }
 
-    public static TuneInService provideTuneInService() {
+    public static TuneInService provideTuneInService(String baseUrl) {
 
-        return provideRetrofit(Constants.BASE_URL).create(TuneInService.class);
+        return provideRetrofit(baseUrl).create(TuneInService.class);
     }
 }

@@ -28,8 +28,9 @@ public class MainActivity extends AppCompatActivity implements TopLevelCategorie
 
         topLevelAdapter = new TopLevelAdapter(null);
         topLevelRecycler.setAdapter(topLevelAdapter);
+        topLevelAdapter.setOnClickListener(this);
 
-        TopLevelPresenter booksPresenter = new TopLevelPresenter(this, Injector.provideTuneInService());
+        TopLevelPresenter booksPresenter = new TopLevelPresenter(this, Injector.provideTuneInService(Constants.BASE_URL));
         booksPresenter.initDataSet();
     }
 
