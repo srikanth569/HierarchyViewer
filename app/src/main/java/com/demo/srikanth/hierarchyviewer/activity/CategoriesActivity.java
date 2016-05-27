@@ -29,7 +29,7 @@ public class CategoriesActivity extends AppCompatActivity implements CategoryCon
         id = getIntent().getStringExtra(EXTRA_ID);
         url = getIntent().getStringExtra(EXTRA_URL);
         CategoryPresenter presenter = new CategoryPresenter(this, Injector.provideTuneInService(Constants.BASE_URL));
-        presenter.initData(id);
+        presenter.initData(url);
     }
 
     @Override

@@ -27,8 +27,7 @@ public class CategoryPresenter {
     public void initData(String id) {
         HashMap<String, String> queryMap = new HashMap<>();
         queryMap.put("render", "json");
-        queryMap.put("c", id);
-        tuneInService.getCategories(queryMap).enqueue(new Callback<TopLevelCategories>() {
+        tuneInService.getCategories(id,queryMap).enqueue(new Callback<TopLevelCategories>() {
             @Override
             public void onResponse(Call<TopLevelCategories> call, Response<TopLevelCategories> response) {
                 Log.v("Testing", "Success" + response.body().toString());

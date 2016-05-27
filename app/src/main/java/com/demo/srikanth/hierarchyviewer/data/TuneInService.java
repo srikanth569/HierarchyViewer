@@ -21,6 +21,8 @@ public interface TuneInService {
     Call<TopLevelCategories> getCategories(@QueryMap Map<String, String> queryMap);
 
     @GET
-    Call<TopLevelCategories> getCategories(@QueryMap Map<String, String> queryMap, @Url String url);
+    Call<TopLevelCategories> getCategories(@Url String url, @QueryMap Map<String, String> queryMap);
+
+
 
 }
