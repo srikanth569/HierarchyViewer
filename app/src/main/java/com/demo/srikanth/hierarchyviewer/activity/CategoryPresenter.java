@@ -47,7 +47,8 @@ public class CategoryPresenter {
 
                     Gson gson = new Gson();
                     try {
-                        JSONObject json = new JSONObject(response.body().string());
+                        String responseString = response.body().string();
+                        JSONObject json = new JSONObject(responseString);
                         JSONArray jsonArray = json.getJSONArray("body");
 
                         JSONObject jsonobject = jsonArray.getJSONObject(0);
@@ -58,13 +59,12 @@ public class CategoryPresenter {
                             foundChilrenKey = key.equals("children");
                         }
                         if (foundChilrenKey) {
-                            ChildCategory childCategory = gson.fromJson(response.body().charStream(), ChildCategory.class);
+                            ChildCategory childCategory = gson.fromJson(responseString, ChildCategory.class);
                             Log.v("Testing", childCategory.getHead().getTitle());
                         } else {
-                            TopLevelCategories categories = gson.fromJson(response.body().charStream(), TopLevelCategories.class);
+                            TopLevelCategories categories = gson.fromJson(responseString, TopLevelCategories.class);
                             categoryView.showTopLevelCategories(categories);
                         }
-                        Log.v("Testing", "Fuck this shit " + foundChilrenKey);
                     } catch (JSONException | IOException e) {
                         e.printStackTrace();
                     }
