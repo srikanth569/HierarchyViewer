@@ -30,6 +30,9 @@ dependencies {
     compile "com.android.support:appcompat-v7:$supportLibraryVersion"
     compile "com.android.support:recyclerview-v7:$supportLibraryVersion"
 
+    // Image Loading Library
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
     // REST
     compile "com.squareup.retrofit2:retrofit:$retrofitVersion"
 

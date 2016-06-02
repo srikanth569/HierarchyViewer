@@ -12,6 +12,7 @@ public class Child {
     private String URL;
     private String key;
     private String subtext;
+    private String image;
 
     public String getElement() {
         return element;
@@ -53,6 +54,14 @@ public class Child {
         this.key = key;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     @Override
     public String toString() {
         return "Child{" +
@@ -71,4 +80,5 @@ public class Child {
     public void setSubtext(String subtext) {
         this.subtext = subtext;
     }
+
 }
